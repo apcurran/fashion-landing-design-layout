@@ -23,6 +23,7 @@ ul {
     height: 100vh;
     position: absolute;
     top: 0;
+    z-index: -5;
 }
 
 .strip-1 { left: 25%; }
@@ -30,21 +31,21 @@ ul {
 .strip-3 { left: 75%; }
 
 .container {
-    padding: 2rem 3rem;
+    padding: 2.5rem 4rem;
     display: grid;
     grid-template-areas:
         "header header header header"
-        "main   main   main   main"
+        ".      main   main   ."
+        ".      aside  aside  ."
         "footer footer footer footer";
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto 3fr auto auto;
     gap: 1rem;
     height: 100vh;
 }
 
 .header {
     grid-area: header;
-    background-color: #ccc;
 }
 
 .nav {
@@ -57,6 +58,7 @@ ul {
     display: inline-block;
     font-family: 'Charm', cursive;
     font-size: 2rem;
+    font-weight: bold;
     color: #111;
 }
 
@@ -64,15 +66,49 @@ ul {
     display: inline-block;
 }
 
+.nav__link {
+    display: inline-block;
+    padding: .6rem 0;
+}
+
 .nav__item:not(:last-of-type) {
-    margin-right: .5rem;
+    margin-right: 1rem;
 }
 
 .main {
     grid-area: main;
+    align-self: center;
+    justify-self: center;
+}
+
+.fig {
+    width: 25rem;
+}
+
+.fig__img {
+    width: 100%;
+}
+
+.aside {
+    grid-area: aside;
+    align-self: center;
+}
+
+.aside__date {
+    font-size: 1rem;
 }
 
 .footer {
     grid-area: footer;
+    justify-self: end;
+}
+
+.footer__social-link {
+    display: inline-flex;
+    padding: .5rem;
+}
+
+.footer__social-link__icon {
+    width: 1.5rem;
 }
 
