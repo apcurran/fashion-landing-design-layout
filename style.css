@@ -36,7 +36,7 @@ ul {
     grid-template-areas:
         "header header header header"
         ".      main   main   ."
-        ".      aside  aside  ."
+        "tag    aside  aside  ."
         "footer footer footer footer";
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto 3fr auto auto;
@@ -89,9 +89,19 @@ ul {
     width: 100%;
 }
 
+.tagline {
+    grid-area: tag;
+}
+
+.tagline__title {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    opacity: .75;
+}
+
 .aside {
     grid-area: aside;
-    align-self: center;
+    align-self: end;
 }
 
 .aside__date {
@@ -111,4 +121,3 @@ ul {
 .footer__social-link__icon {
     width: 1.5rem;
 }
-
