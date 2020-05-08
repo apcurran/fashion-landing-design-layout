@@ -4,8 +4,13 @@
     box-sizing: border-box;
 }
 
+:root {
+    --roll-out-dur: 900ms;
+    --roll-out-delay: 100ms;
+}
+
 body {
-    font-family: sans-serif;
+    font-family: "Segoe UI",sans-serif;
 }
 
 a {
@@ -56,8 +61,8 @@ ul {
 
 .nav__logo {
     display: inline-block;
-    font-family: 'Charm', cursive;
-    font-size: 2rem;
+    font-family: "Charm", cursive;
+    font-size: 1.75rem;
     font-weight: bold;
     color: #111;
 }
@@ -82,11 +87,21 @@ ul {
 }
 
 .fig {
+    position: relative;
     width: 25rem;
 }
 
 .fig__img {
     width: 100%;
+}
+
+.fig__caption {
+    position: absolute;
+    bottom: -1rem;
+    right: -5rem;
+    padding: .5rem 1.5rem;
+    font-size: 3rem;
+    font-family: "Charm", cursive;
 }
 
 .tagline {
@@ -96,7 +111,19 @@ ul {
 .tagline__title {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    opacity: .75;
+    animation: fade-in 900ms ease forwards;
+    animation-delay: calc(var(--roll-out-dur) + var(--roll-out-delay));
+    opacity: 0;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .aside {
@@ -110,7 +137,28 @@ ul {
 
 .footer {
     grid-area: footer;
-    justify-self: end;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.footer__plus-icon {
+    width: 1.75rem;
+    animation: roll-out var(--roll-out-dur) cubic-bezier(0.54, 0, 0.39, 1.01) forwards;
+    animation-delay: var(--roll-out-delay);
+    opacity: 0;
+}
+
+@keyframes roll-out {
+    0% {
+        opacity: 0;
+        transform: translateX(50px) rotate(90deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+    }
 }
 
 .footer__social-link {
