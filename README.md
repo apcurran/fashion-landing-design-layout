@@ -9,3 +9,5 @@
 * CSS variables (with calc function) utilized
 
 * Custom CSS animations
+
+* Responsive layout
