@@ -169,6 +169,11 @@ ul {
 
 .footer__social-link__icon {
     width: 1.5rem;
+    opacity: .6;
+}
+
+.footer__social-link__icon:hover {
+    opacity: 1;
 }
 
 @media screen and (max-width: 50em) {
@@ -193,6 +198,8 @@ ul {
     .fig { width: 100%; }
 
     .fig__caption { display: none; }
+
+    .footer { padding-bottom: 1.5rem; }
 }
 
 @media screen and (max-width: 27em) {
